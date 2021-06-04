@@ -17,6 +17,9 @@ namespace BookStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            #if DEBUG
+            services.AddRazorPages().AddRazorRuntimeCompilation();
+            #endif
             
         }
 
@@ -43,7 +46,7 @@ namespace BookStore
             //     await context.Response.WriteAsync("Hello From my third middleware \n");
             // });
             
-
+            app.UseStaticFiles();
             app.UseRouting();
             
 
