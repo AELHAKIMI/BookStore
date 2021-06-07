@@ -22,11 +22,11 @@ namespace BookStore.Repository
 
         private List<BookModel> DataSource(){
             return new List<BookModel>(){
-                new BookModel(){Id = 1, Title="Python", Author= "Ayoub", Description="description for Python book"},
-                new BookModel(){Id = 2, Title="Java", Author= "Abderrahim", Description="description for Java book"},
-                new BookModel(){Id = 3, Title="C#", Author= "Nasser", Description="description for C# book"},
-                new BookModel(){Id = 4, Title="HTML CSS", Author= "Mohammed", Description="description for HTML&CSS book"},
-                new BookModel(){Id = 5, Title="PHP", Author= "Khalid", Description="description for PHP book"},
+                new BookModel(){Id = 1, Title="Python", Author= "Ayoub", Description="description for Python book", Category="Programming", Language="English",TotalPages=854},
+                new BookModel(){Id = 2, Title="Java", Author= "Abderrahim", Description="description for Java book", Category="Development", Language="French",TotalPages=1024},
+                new BookModel(){Id = 3, Title="C#", Author= "Nasser", Description="description for C# book", Category="Programming", Language="English",TotalPages=1080},
+                new BookModel(){Id = 4, Title="HTML CSS", Author= "Mohammed", Description="description for HTML&CSS book", Category="Web Design", Language="Hindi",TotalPages=325},
+                new BookModel(){Id = 5, Title="PHP", Author= "Khalid", Description="description for PHP book", Category="Web Development", Language="English",TotalPages=814},
             };
         }
     }
