@@ -10,6 +10,9 @@ namespace BookStore.Repository
         public List<BookModel> GetAllBooks(){
             return DataSource();
         }
+        public IEnumerable<BookModel> GetTopBooks(){
+            return DataSource().OrderBy(x => x.Id).Take(3);
+        }
         public BookModel GetBookById(int id){
             return DataSource().Where(x => x.Id == id).FirstOrDefault();
         }
@@ -19,11 +22,11 @@ namespace BookStore.Repository
 
         private List<BookModel> DataSource(){
             return new List<BookModel>(){
-                new BookModel(){Id = 1, Title="Python", Author= "Ayoub"},
-                new BookModel(){Id = 2, Title="Java", Author= "Abderrahim"},
-                new BookModel(){Id = 3, Title="C#", Author= "Nasser"},
-                new BookModel(){Id = 4, Title="HTML CSS", Author= "Mohammed"},
-                new BookModel(){Id = 5, Title="PHP", Author= "Khalid"},
+                new BookModel(){Id = 1, Title="Python", Author= "Ayoub", Description="description for Python book"},
+                new BookModel(){Id = 2, Title="Java", Author= "Abderrahim", Description="description for Java book"},
+                new BookModel(){Id = 3, Title="C#", Author= "Nasser", Description="description for C# book"},
+                new BookModel(){Id = 4, Title="HTML CSS", Author= "Mohammed", Description="description for HTML&CSS book"},
+                new BookModel(){Id = 5, Title="PHP", Author= "Khalid", Description="description for PHP book"},
             };
         }
     }
