@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Book store application</title>
+    <title>@ViewData["Title"] - BookStore App</title>
     <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/Site.css" />
   </head>
@@ -21,19 +21,24 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <a class="navbar-brand" href="/">BookStore</a>
+          <a asp-controller="Home" asp-action="index" class="navbar-brand" >
+           <img asp-append-version="true" src="~/images/logo.png" alt="BookStore" width="30" height="30">
+           BookStore</a>
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" href="/">Home </a>
+              <a class="nav-link" asp-controller="Home" asp-action="index">Home </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="~/home/aboutus">About</a>
+              <a class="nav-link" asp-controller="Home" asp-action="aboutus">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/home/contactus">Contact</a>
+              <a class="nav-link" asp-controller="Home" asp-action="contactus">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="~/book/getallbooks">All Books</a>
+              <a class="nav-link" asp-controller="Book" asp-action="getallbooks">All Books</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" asp-controller="Book" asp-action="addnewbook">Add New Book</a>
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">

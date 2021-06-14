@@ -11,27 +11,48 @@ namespace BookStore.Controllers
     public class BookController : Controller
     {   
         private readonly BookRepository _bookRepository =  null;
-        public BookController()
+        [ViewData]
+        public string Title { get; set; }
+        public BookController(BookRepository bookRepository)
         {
-           _bookRepository = new BookRepository(); 
+           _bookRepository = bookRepository; 
         }
-        public IActionResult GetAllBooks()
+        public async Task<IActionResult> GetAllBooks()
         {
-            var data = _bookRepository.GetAllBooks();
+            Title = "All Books";
+            var data = await _bookRepository.GetAllBooks();
             return View(data);
         }
         public IActionResult GetTopBooks()
         {
+
             var data = _bookRepository.GetTopBooks();
             return View(data);
         }
-        public IActionResult GetBook(int id){
-            var data =  _bookRepository.GetBookById(id);
+        public async Task<ViewResult> GetBook(int id){
+            
+            
+            var data = await  _bookRepository.GetBookById(id);
+            Title = "Book Details " + data.Title;
             return View(data);
         }
 
-        public List<BookModel> SearchBook(string authorName, string bookName){
-            return _bookRepository.SearchBook(bookName, authorName);
+        public ViewResult AddNewBook(bool isSuccess = false, int bookId = 0){
+            ViewBag.bookId = bookId;
+            ViewBag.isSuccess = isSuccess;
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddNewBook(BookModel bookModel){
+            if (ModelState.IsValid){
+                
+            int id = await  _bookRepository.AddNewBook(bookModel);
+            if (id > 0){
+                return RedirectToAction(nameof(AddNewBook),new { isSuccess = true, bookId = id});
+            }  
+            }
+            return View();
         }
     }
 }

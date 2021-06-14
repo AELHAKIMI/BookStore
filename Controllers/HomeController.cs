@@ -10,19 +10,24 @@ namespace BookStore.Controllers
     public class HomeController : Controller
     {
         private readonly BookRepository _bookrepository = null;
-        public HomeController()
+        [ViewData]
+        public string Title { get; set; }
+        public HomeController(BookRepository bookRepository)
         {
-            _bookrepository = new BookRepository();
+            _bookrepository = bookRepository;
         }
         public IActionResult Index()
         {
+            Title = "Home";
             var data = _bookrepository.GetTopBooks();
             return View(data);
         }
         public ViewResult AboutUs(){
+            Title = "About Us";
             return View();
         }
         public ViewResult ContactUs(){
+            Title = "Contact Us";
             return View();
         }
     }
