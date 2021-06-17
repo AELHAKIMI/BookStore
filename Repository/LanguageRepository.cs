@@ -26,6 +26,17 @@ namespace BookStore.Repository
             }).ToListAsync();
         }
 
+        public async Task<int> AddLanguage(LanguageModel model){
+            var newLanguage =  new Language(){
+                Name = model.Name,
+                Description = model.Description
+            };
+            await _context.Language.AddAsync(newLanguage);
+            await _context.SaveChangesAsync();
+            return newLanguage.Id;
+            
+        }
+
 
     }
     
