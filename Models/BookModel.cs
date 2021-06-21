@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using BookStore.Data;
+using Microsoft.AspNetCore.Http;
 
 namespace BookStore.Models
 {
@@ -25,7 +26,8 @@ namespace BookStore.Models
         [Required(ErrorMessage ="Please enter the total pages")]
         [Display(Name ="Total Pages")]
         public int? TotalPages { get; set; }
-
+        [Required]
+        public IFormFile CoverPhoto {get; set;}
        
 
     }

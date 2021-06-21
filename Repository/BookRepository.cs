@@ -41,7 +41,7 @@ namespace BookStore.Repository
                         Author = book.Author,
                         Description = book.Description,
                         LanguageId = book.LanguageId,
-                        Language = book.Language.Name,
+                        // Language = book.Language.Name,
                         Title = book.Title,
                         TotalPages = book.TotalPages,
                         Category = book.Category

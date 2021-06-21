@@ -38,6 +38,7 @@ msbuild.wrn
 
 #library
 wwwroot/lib
+wwwroot/books
 
 #Migrations
 Migrations/

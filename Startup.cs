@@ -21,9 +21,13 @@ namespace BookStore
         {
             services.AddDbContext<BookStoreContext>(options => options.UseMySQL("Server=localhost;Database=BookStore;Uid=root;Pwd=Mysql@2021;"));
             services.AddControllersWithViews();
-            #if DEBUG
+#if DEBUG
             services.AddRazorPages().AddRazorRuntimeCompilation();
-            #endif
+            // Uncomment this code to disable client side validation.
+            // .AddViewOptions(option =>{
+            // option.HtmlHelperOptions.ClientValidationEnabled = false
+            // )};
+#endif
             services.AddScoped<BookRepository, BookRepository>();
             services.AddScoped<LanguageRepository, LanguageRepository>();
             

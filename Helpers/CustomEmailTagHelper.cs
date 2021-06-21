@@ -8,7 +8,10 @@ namespace BookStore.Helpers
 {
     class CustomEmailTagHelper : TagHelper
     {
-        
+        public override void Process(TagHelperContext context, TagHelperOutput output)
+        {
+            base.Process(context, output);
+        }
     }
     
 }
