@@ -26,8 +26,14 @@ namespace BookStore.Models
         [Required(ErrorMessage ="Please enter the total pages")]
         [Display(Name ="Total Pages")]
         public int? TotalPages { get; set; }
+        public string CoverImageUrl { get; set; }
         [Required]
         public IFormFile CoverPhoto {get; set;}
+        public IFormFileCollection GalleryFiles { get; set; }
+        public List<GalleryModel> Gallery { get; set; }
+        public string BookContentUrl { get; set; }
+        [Required]
+        public IFormFile BookContent {get; set;}
        
 
     }

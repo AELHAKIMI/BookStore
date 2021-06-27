@@ -60,6 +60,22 @@
       <span asp-validation-for="CoverPhoto" class="text-danger"></span>
     </div>
     <div class="form-group">
+      <label asp-for="GalleryFiles" calss="control-label"></label>
+      <div class="custom-file">
+        <input asp-for="GalleryFiles" class="custom-file-input" id="customFile">
+        <label for="customFile" class="custom-file-label">Choose file</label>
+      </div>
+      <span asp-validation-for="GalleryFiles" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+      <label asp-for="BookContent" calss="control-label"></label>
+      <div class="custom-file">
+        <input asp-for="BookContent" class="custom-file-input" id="customFile">
+        <label for="customFile" class="custom-file-label">Choose file</label>
+      </div>
+      <span asp-validation-for="BookContent" class="text-danger"></span>
+    </div>
+    <div class="form-group">
       <label asp-for="Description" calss="control-label"></label>
       <textarea asp-for="Description" class="form-control"></textarea>
       <span asp-validation-for="Description" class="text-danger"></span>

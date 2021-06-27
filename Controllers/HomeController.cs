@@ -18,9 +18,8 @@ namespace BookStore.Controllers
         }
         public IActionResult Index()
         {
-            Title = "Home";
-            var data = _bookrepository.GetTopBooks();
-            return View(data);
+
+            return View();
         }
         public ViewResult AboutUs(){
             Title = "About Us";
